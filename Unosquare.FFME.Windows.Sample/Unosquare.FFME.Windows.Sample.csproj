@@ -58,8 +58,8 @@
     <ApplicationIcon>ffmpeg.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FFmpeg.AutoGen, Version=3.4.0.3, Culture=neutral, PublicKeyToken=9b7632533a381715, processorArchitecture=MSIL">
-      <HintPath>..\packages\FFmpeg.AutoGen.3.4.0.3\lib\net45\FFmpeg.AutoGen.dll</HintPath>
+    <Reference Include="FFmpeg.AutoGen, Version=3.4.0.5, Culture=neutral, PublicKeyToken=9b7632533a381715, processorArchitecture=MSIL">
+      <HintPath>..\packages\FFmpeg.AutoGen.3.4.0.5\lib\net45\FFmpeg.AutoGen.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -93,11 +93,11 @@
     </Compile>
     <Compile Include="Foundation\DeferredAction.cs" />
     <Compile Include="Foundation\ReactiveExtensions.cs" />
+    <Compile Include="Foundation\ThumbnailGenerator.cs" />
     <Compile Include="Foundation\ViewModelBase.cs" />
     <Compile Include="Foundation\CustomPlaylist.cs" />
     <Compile Include="Foundation\CustomPlaylistEntry.cs" />
     <Compile Include="Foundation\DelegateCommand.cs" />
-    <Compile Include="Foundation\PlaylistManager.cs" />
     <Compile Include="Foundation\ValueConverters.cs" />
     <Compile Include="ViewModels\AttachedViewModel.cs" />
     <Compile Include="ViewModels\ControllerViewModel.cs" />
@@ -128,7 +128,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Foundation\WindowStatus.cs" />
-    <Compile Include="MainWindow.EventHandlers.cs" />
+    <Compile Include="MainWindow.MediaEvents.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -139,7 +139,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindow.RenderingEvents.cs" />
+    <Compile Include="MainWindow.MediaRendering.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -25,12 +25,19 @@
 
             #endregion
 
+            #region Constructors
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="AppCommands"/> class.
+            /// </summary>
             internal AppCommands()
             {
                 // placeholder
             }
 
-            #region Properties: Commands
+            #endregion
+
+            #region Properties (Commands)
 
             /// <summary>
             /// Gets the open command.
@@ -159,6 +166,7 @@
                             if (Current.MainWindow.WindowStyle == WindowStyle.None)
                             {
                                 PreviousWindowStatus.Apply(Current.MainWindow);
+                                WindowStatus.EnableDisplayTimeout();
                             }
                             else
                             {
@@ -168,6 +176,7 @@
                                 Current.MainWindow.Topmost = true;
                                 Current.MainWindow.WindowState = WindowState.Normal;
                                 Current.MainWindow.WindowState = WindowState.Maximized;
+                                WindowStatus.DisableDisplayTimeout();
                             }
                         });
                     }
@@ -193,8 +202,8 @@
                             var entry = arg as CustomPlaylistEntry;
                             if (entry == null) return;
 
-                            PlaylistManager.RemoveEntry(entry.MediaUrl);
-                            PlaylistManager.SaveEntries();
+                            Current.ViewModel.Playlist.Entries.RemoveEntryByMediaUrl(entry.MediaUrl);
+                            Current.ViewModel.Playlist.Entries.SaveEntries();
                         });
                     }
 
